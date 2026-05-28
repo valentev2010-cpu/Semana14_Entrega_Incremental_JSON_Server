@@ -1,0 +1,232 @@
+:root {
+  --color-primary: #165a3d;
+  --color-primary-dark: #0f3f2b;
+  --color-accent: #f1b24a;
+  --color-soft: #f4f8f5;
+  --color-text: #1c2420;
+  --color-muted: #5b6861;
+  --shadow-card: 0 1rem 2rem rgba(15, 63, 43, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: #ffffff;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 9999;
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 0.5rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.app-header,
+.app-footer,
+.hero-section {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
+.hero-section {
+  min-height: 520px;
+  display: grid;
+  align-items: center;
+}
+
+.hero-card,
+.guide-card,
+.product-card,
+.form-card,
+.metric-card,
+.requirement-card {
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-card {
+  padding: 2rem;
+  color: var(--color-text);
+  background: #ffffff;
+}
+
+.task-list li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.task-list i {
+  color: var(--color-primary);
+}
+
+.section-space {
+  padding: 5rem 0;
+}
+
+.bg-soft {
+  background: var(--color-soft);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover,
+.product-card:focus-within {
+  transform: translateY(-4px);
+}
+
+.product-icon {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  background: var(--color-soft);
+  border-radius: 1rem;
+}
+
+.form-card .card-footer {
+  border-top: 1px solid #e8eee9;
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(22, 90, 61, 0.18);
+}
+
+.metric-card {
+  min-height: 150px;
+  padding: 1.5rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metric-label {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-value {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+.small-value {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.requirement-card {
+  border-left: 0.5rem solid var(--color-accent);
+}
+
+.requirement-card.is-done {
+  border-left-color: var(--color-primary);
+}
+
+.table th {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+code {
+  color: #9f1239;
+  background: #fff1f2;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .section-space {
+    padding: 3.5rem 0;
+  }
+
+  .hero-card,
+  .guide-card,
+  .product-card,
+  .form-card,
+  .metric-card,
+  .requirement-card {
+    border-radius: 1rem;
+  }
+}

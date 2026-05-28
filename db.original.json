@@ -1,0 +1,132 @@
+{
+  "productos": [
+    {
+      "id": "p1",
+      "nombre": "Canasta campesina",
+      "categoria": "alimentos",
+      "descripcion": "Productos frescos de la vereda: frutas, hortalizas y tuberculos seleccionados.",
+      "precio": 28000,
+      "disponible": true,
+      "destacado": true
+    },
+    {
+      "id": "p2",
+      "nombre": "Taller de huerta escolar",
+      "categoria": "educacion",
+      "descripcion": "Actividad practica para aprender siembra, cuidado del suelo y registro de cultivos.",
+      "precio": 0,
+      "disponible": true,
+      "destacado": false
+    },
+    {
+      "id": "p3",
+      "nombre": "Muestra artesanal",
+      "categoria": "artesanias",
+      "descripcion": "Exhibicion de tejidos, decoraciones y productos elaborados por la comunidad.",
+      "precio": 15000,
+      "disponible": true,
+      "destacado": true
+    },
+    {
+      "id": "p4",
+      "nombre": "Ruta ambiental comunitaria",
+      "categoria": "turismo",
+      "descripcion": "Recorrido guiado para conocer recursos naturales, senderos y buenas practicas ambientales.",
+      "precio": 12000,
+      "disponible": false,
+      "destacado": false
+    }
+  ],
+  "visitantes": [
+    {
+      "id": "v1",
+      "nombre": "Ana Ruiz",
+      "correo": "ana.ruiz@example.com",
+      "telefono": "3001234567",
+      "interes": "alimentos",
+      "comentario": "Quiero recibir informacion sobre la canasta campesina.",
+      "aceptaContacto": true,
+      "fechaRegistro": "2026-05-20T14:30:00.000Z"
+    },
+    {
+      "id": "v2",
+      "nombre": "Luis Perez",
+      "correo": "luis.perez@example.com",
+      "telefono": "3017654321",
+      "interes": "educacion",
+      "comentario": "Me interesa participar en el taller de huerta escolar.",
+      "aceptaContacto": true,
+      "fechaRegistro": "2026-05-21T10:15:00.000Z"
+    }
+  ],
+  "requisitos": [
+    {
+      "id": "r1",
+      "criterio": "El sitio ejecuta correctamente con npm run start",
+      "categoria": "ejecucion",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    },
+    {
+      "id": "r2",
+      "criterio": "El formulario valida nombre, correo, telefono, interes y autorizacion de contacto",
+      "categoria": "validacion",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    },
+    {
+      "id": "r3",
+      "criterio": "Los registros se guardan y se consultan desde JSON Server",
+      "categoria": "base de datos",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    },
+    {
+      "id": "r4",
+      "criterio": "El diseno es responsive y se visualiza correctamente en celular",
+      "categoria": "usabilidad",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    },
+    {
+      "id": "r5",
+      "criterio": "La consola del navegador no muestra errores al usar la aplicacion",
+      "categoria": "pruebas",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    },
+    {
+      "id": "r6",
+      "criterio": "El estudiante documenta el incremento, las pruebas y los ajustes realizados",
+      "categoria": "documentacion",
+      "cumple": false,
+      "evidencia": "Pendiente"
+    }
+  ],
+  "bugs": [
+    {
+      "id": "b1",
+      "titulo": "Validacion de telefono incompleta",
+      "descripcion": "La version inicial acepta telefonos con menos de 10 digitos. Debe corregirse en validaciones.js.",
+      "estado": "pendiente",
+      "prioridad": "alta",
+      "archivo": "src/js/validaciones.js"
+    },
+    {
+      "id": "b2",
+      "titulo": "Mensaje de error poco claro",
+      "descripcion": "Algunos mensajes deben explicar exactamente como corregir el dato ingresado.",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "archivo": "src/js/validaciones.js"
+    },
+    {
+      "id": "b3",
+      "titulo": "Checklist de requisitos sin actualizar",
+      "descripcion": "El equipo debe actualizar los requisitos en la interfaz o en el archivo docs/checklist-requisitos.md.",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "archivo": "docs/checklist-requisitos.md"
+    }
+  ]
+}
