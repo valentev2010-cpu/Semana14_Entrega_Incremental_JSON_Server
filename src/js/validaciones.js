@@ -46,8 +46,8 @@ export function validarTelefono(telefono) {
   // La actividad pide validar exactamente 10 digitos.
   // Esta version inicial es flexible y acepta 7 o mas digitos.
   // Debes corregirla para que solo acepte 10 digitos.
-  if (soloDigitos.length < 7) {
-    return 'El telefono debe tener minimo 7 digitos. Mejora esta regla segun el requisito.';
+  if (soloDigitos.length !== 10) {
+    return 'El telefono debe tener exactamente 10 digitos.';
   }
 
   return '';
@@ -75,17 +75,16 @@ export function validarComentario(comentario) {
     return 'El comentario no debe superar 180 caracteres.';
   }
 
-  // RETO 2 PARA EL ESTUDIANTE:
-  // Agrega una regla opcional: si el comentario existe, debe tener al menos 10 caracteres.
+  if (texto && texto.length < 10) {
+    return 'Si escribes un comentario, debe tener al menos 10 caracteres.';
+  }
+
   return '';
 }
 
 export function validarAceptaContacto(aceptaContacto) {
-  // RETO 3 PARA EL ESTUDIANTE:
-  // Actualmente este campo no es obligatorio en la logica.
-  // Ajusta esta funcion para exigir que el usuario marque la autorizacion.
   if (!aceptaContacto) {
-    return '';
+    return 'Debes autorizar el contacto para continuar.';
   }
 
   return '';

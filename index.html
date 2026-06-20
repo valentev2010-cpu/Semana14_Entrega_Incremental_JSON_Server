@@ -1,261 +1,126 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Entrega incremental Semana 14: mejora de usabilidad, accesibilidad, diseno, estructura y optimizacion con JSON Server." />
-    <title>Feria Rural Digital | Semana 14</title>
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <header class="app-header" role="banner">
-      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegacion principal">
-        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#inicio" aria-label="Inicio Feria Rural Digital">
-          <i class="bi bi-flower1" aria-hidden="true"></i>
-          Feria Rural Digital
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu de navegacion">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#registro">Registro</a></li>
-            <li class="nav-item"><a class="nav-link" href="#panel">Panel</a></li>
-            <li class="nav-item"><a class="nav-link" href="#requisitos">Checklist</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+<title>Feria Rural Digital</title>
 
-    <main id="contenido-principal">
-      <section id="inicio" class="hero-section" aria-labelledby="titulo-principal">
-        <div class="container py-5">
-          <div class="row align-items-center g-4">
-            <div class="col-lg-7">
-              <p class="eyebrow mb-2">Semana 14 | Entrega incremental</p>
-              <h1 id="titulo-principal" class="display-5 fw-bold">Mejora funcional de un sitio web con JSON Server</h1>
-              <p class="lead mt-3">
-                En este reto vas a mejorar una aplicacion web realista: validaras datos, guardaras registros en una API local, actualizaras un panel y demostraras tus pruebas.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mt-4">
-                <a href="#registro" class="btn btn-light btn-lg">Registrar visitante</a>
-                <a href="#requisitos" class="btn btn-outline-light btn-lg">Ver checklist</a>
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="hero-card" role="note" aria-label="Resumen del reto">
-                <h2 class="h4">Tu incremento semanal</h2>
-                <ul class="list-unstyled mb-0 task-list">
-                  <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Ejecutar Vite + JSON Server</li>
-                  <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Corregir validaciones</li>
-                  <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Guardar registros en db.json</li>
-                  <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Documentar evidencias</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-      <section id="productos" class="section-space" aria-labelledby="titulo-productos">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow text-primary">Catalogo</p>
-            <h2 id="titulo-productos">Productos y actividades de la feria</h2>
-            <p>Estos datos vienen desde <code>db.json</code>. Si JSON Server no esta activo, esta seccion mostrara un mensaje de error.</p>
-          </div>
-          <div class="row g-3 align-items-end mb-4">
-            <div class="col-md-6 col-lg-4">
-              <label for="filtroCategoria" class="form-label">Filtrar por categoria</label>
-              <select id="filtroCategoria" class="form-select">
-                <option value="todas">Todas las categorias</option>
-                <option value="alimentos">Alimentos</option>
-                <option value="educacion">Educacion</option>
-                <option value="artesanias">Artesanias</option>
-                <option value="turismo">Turismo</option>
-              </select>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <button id="btnRecargarProductos" class="btn btn-outline-primary w-100" type="button">
-                <i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Recargar catalogo
-              </button>
-            </div>
-          </div>
-          <div id="productosContainer" class="row g-4" aria-live="polite"></div>
-        </div>
-      </section>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7f5;
+}
 
-      <section id="registro" class="section-space bg-soft" aria-labelledby="titulo-registro">
-        <div class="container">
-          <div class="row g-4">
-            <div class="col-lg-5">
-              <div class="section-heading sticky-lg-top guide-card">
-                <p class="eyebrow text-primary">Formulario</p>
-                <h2 id="titulo-registro">Registro de visitantes interesados</h2>
-                <p>
-                  La funcionalidad principal de esta entrega es registrar visitantes en JSON Server. Debes revisar, probar y mejorar las validaciones.
-                </p>
-                <div class="alert alert-info mb-0">
-                  <strong>Reto tecnico:</strong> revisa <code>src/js/validaciones.js</code> y corrige los TODO marcados en el codigo.
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7">
-              <form id="formVisitante" class="card form-card" novalidate>
-                <div class="card-body p-4">
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label for="nombre" class="form-label">Nombre completo</label>
-                      <input type="text" id="nombre" name="nombre" class="form-control" autocomplete="name" required minlength="3" aria-describedby="ayudaNombre errorNombre" />
-                      <div id="ayudaNombre" class="form-text">Escribe nombres y apellidos. Minimo 3 caracteres.</div>
-                      <div id="errorNombre" class="invalid-feedback"></div>
-                    </div>
+.hero{
+    background:linear-gradient(135deg,#165a3d,#0f3f2b);
+    color:white;
+    padding:100px 0;
+}
 
-                    <div class="col-md-6">
-                      <label for="correo" class="form-label">Correo electronico</label>
-                      <input type="email" id="correo" name="correo" class="form-control" autocomplete="email" required aria-describedby="ayudaCorreo errorCorreo" />
-                      <div id="ayudaCorreo" class="form-text">Ejemplo: nombre@correo.com</div>
-                      <div id="errorCorreo" class="invalid-feedback"></div>
-                    </div>
+.card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
 
-                    <div class="col-md-6">
-                      <label for="telefono" class="form-label">Telefono de contacto</label>
-                      <input type="tel" id="telefono" name="telefono" class="form-control" inputmode="numeric" autocomplete="tel" required aria-describedby="ayudaTelefono errorTelefono" />
-                      <div id="ayudaTelefono" class="form-text">Debe contener 10 digitos. Ejemplo: 3001234567.</div>
-                      <div id="errorTelefono" class="invalid-feedback"></div>
-                    </div>
+.section{
+    padding:80px 0;
+}
 
-                    <div class="col-md-6">
-                      <label for="interes" class="form-label">Interes principal</label>
-                      <select id="interes" name="interes" class="form-select" required aria-describedby="errorInteres">
-                        <option value="">Selecciona una opcion</option>
-                        <option value="alimentos">Alimentos</option>
-                        <option value="educacion">Educacion</option>
-                        <option value="artesanias">Artesanias</option>
-                        <option value="turismo">Turismo</option>
-                      </select>
-                      <div id="errorInteres" class="invalid-feedback"></div>
-                    </div>
+footer{
+    background:#165a3d;
+    color:white;
+    padding:25px;
+    text-align:center;
+}
+</style>
+</head>
 
-                    <div class="col-12">
-                      <label for="comentario" class="form-label">Comentario</label>
-                      <textarea id="comentario" name="comentario" class="form-control" rows="4" maxlength="180" aria-describedby="contadorComentario errorComentario"></textarea>
-                      <div class="d-flex justify-content-between gap-2">
-                        <div id="errorComentario" class="invalid-feedback d-block"></div>
-                        <div id="contadorComentario" class="form-text ms-auto">0/180</div>
-                      </div>
-                    </div>
+<body>
 
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" id="aceptaContacto" name="aceptaContacto" aria-describedby="errorAceptaContacto" />
-                        <label class="form-check-label" for="aceptaContacto">
-                          Autorizo que me contacten con informacion de la feria.
-                        </label>
-                        <div id="errorAceptaContacto" class="invalid-feedback d-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer bg-white p-4 d-flex flex-wrap gap-2 justify-content-end">
-                  <button id="btnLimpiar" type="reset" class="btn btn-outline-secondary">Limpiar</button>
-                  <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-send" aria-hidden="true"></i> Guardar registro
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="#">🌱 Feria Rural Digital</a>
+</div>
+</nav>
 
-      <section id="panel" class="section-space" aria-labelledby="titulo-panel">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow text-primary">Dashboard</p>
-            <h2 id="titulo-panel">Panel de registros y resultados</h2>
-            <p>El panel se actualiza leyendo los registros guardados en JSON Server.</p>
-          </div>
+<section class="hero">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-7">
+<h1 class="display-4 fw-bold">
+Feria Rural Digital
+</h1>
 
-          <div class="row g-4">
-            <div class="col-lg-4">
-              <div class="metric-card">
-                <span class="metric-label">Total visitantes</span>
-                <strong id="totalVisitantes" class="metric-value">0</strong>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="metric-card">
-                <span class="metric-label">Ultimo registro</span>
-                <strong id="ultimoRegistro" class="metric-value small-value">Sin datos</strong>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="metric-card">
-                <span class="metric-label">Estado de API</span>
-                <strong id="estadoApi" class="metric-value small-value">Verificando...</strong>
-              </div>
-            </div>
-          </div>
+<p class="lead">
+Registro de visitantes y control mediante JSON Server.
+</p>
 
-          <div class="row g-4 mt-1">
-            <div class="col-lg-5">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h3 class="h5">Intereses registrados</h3>
-                  <canvas id="graficoIntereses" aria-label="Grafico de visitantes por interes" role="img"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
-                    <h3 class="h5 mb-0">Ultimos visitantes</h3>
-                    <button id="btnRecargarVisitantes" class="btn btn-sm btn-outline-primary" type="button">Actualizar tabla</button>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table align-middle">
-                      <caption class="visually-hidden">Tabla con visitantes registrados</caption>
-                      <thead>
-                        <tr>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Interes</th>
-                          <th scope="col">Telefono</th>
-                          <th scope="col">Fecha</th>
-                        </tr>
-                      </thead>
-                      <tbody id="tablaVisitantes"></tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<a href="#registro" class="btn btn-light btn-lg">
+Registrarme
+</a>
+</div>
 
-      <section id="requisitos" class="section-space bg-soft" aria-labelledby="titulo-requisitos">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow text-primary">Entrega</p>
-            <h2 id="titulo-requisitos">Checklist de requisitos</h2>
-            <p>Usa esta lista para verificar tu entrega incremental. Tambien debes completar <code>docs/checklist-requisitos.md</code>.</p>
-          </div>
-          <div id="requisitosContainer" class="row g-3" aria-live="polite"></div>
-        </div>
-      </section>
-    </main>
+<div class="col-lg-5">
+<div class="card p-4">
+<h3 class="text-dark">Características</h3>
+<ul class="text-dark">
+<li>Registro de visitantes</li>
+<li>Dashboard</li>
+<li>JSON Server</li>
+<li>Validaciones</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <footer class="app-footer py-4" role="contentinfo">
-      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
-        <span>Semana 14 - Taller practico con JSON Server</span>
-        <span>Usabilidad · Accesibilidad · Optimizacion · Validacion</span>
-      </div>
-    </footer>
+<section id="registro" class="section">
+<div class="container">
 
-    <script type="module" src="/src/js/app.js"></script>
-  </body>
+<div class="card p-4">
+
+<h2>Registro</h2>
+
+<form id="formVisitante">
+
+<div class="mb-3">
+<label>Nombre</label>
+<input type="text" class="form-control" id="nombre">
+</div>
+
+<div class="mb-3">
+<label>Correo</label>
+<input type="email" class="form-control" id="correo">
+</div>
+
+<div class="mb-3">
+<label>Teléfono</label>
+<input type="tel" class="form-control" id="telefono">
+</div>
+
+<button class="btn btn-success">
+Guardar
+</button>
+
+</form>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+Feria Rural Digital © 2026
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
+```
